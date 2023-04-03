@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="main" prefWidth="500.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simple.javafxapp.MainController">
+<children>
+    <fx:include source="string-reverser-view.fxml" AnchorPane.rightAnchor="0.0" />
+    <fx:include source="integer-to-roman-view.fxml" />
+</children>
+
+</VBox>
