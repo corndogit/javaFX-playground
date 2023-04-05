@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane gridLinesVisible="true" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simple.javafxapp.GridThingController">
+   <rowConstraints>
+      <RowConstraints minHeight="30.0" prefHeight="30.0" />
+      <RowConstraints minHeight="30.0" prefHeight="30.0" />
+      <RowConstraints minHeight="30.0" prefHeight="30.0" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints minWidth="30.0" prefWidth="30.0" />
+      <ColumnConstraints minWidth="30.0" prefWidth="30.0" />
+      <ColumnConstraints minWidth="30.0" prefWidth="30.0" />
+   </columnConstraints>
+</GridPane>
