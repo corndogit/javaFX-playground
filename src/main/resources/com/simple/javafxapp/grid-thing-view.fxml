@@ -1,26 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane gridLinesVisible="true" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simple.javafxapp.GridThingController">
-   <rowConstraints>
-      <RowConstraints minHeight="100.0" prefHeight="100.0" />
-      <RowConstraints minHeight="100.0" prefHeight="100.0" />
-      <RowConstraints minHeight="100.0" prefHeight="100.0" />
-   </rowConstraints>
-   <columnConstraints>
-      <ColumnConstraints minWidth="100.0" prefWidth="100.0" />
-      <ColumnConstraints minWidth="100.0" prefWidth="100.0" />
-      <ColumnConstraints minWidth="100.0" prefWidth="100.0" />
-   </columnConstraints>
-   <Button fx:id="item1" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-   <Button fx:id="item2" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-   <Button fx:id="item3" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-   <Button fx:id="item4" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-   <Button fx:id="item5" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-   <Button fx:id="item6" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-   <Button fx:id="item7" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-   <Button fx:id="item8" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-   <Button fx:id="item9" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-</GridPane>
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simple.javafxapp.GridThingController">
+   <children>
+      <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="GridThing (AKA TicTacToe)">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="turnIndicator" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="Player 1's turn (uses X)">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <GridPane fx:id="gridThing" alignment="TOP_CENTER" gridLinesVisible="true" maxHeight="300.0" maxWidth="300.0" minHeight="300.0" minWidth="300.0">
+         <rowConstraints>
+            <RowConstraints maxHeight="100.0" minHeight="100.0" />
+            <RowConstraints maxHeight="100.0" minHeight="100.0" />
+            <RowConstraints maxHeight="100.0" minHeight="100.0" />
+         </rowConstraints>
+         <columnConstraints>
+            <ColumnConstraints maxWidth="100.0" minWidth="100.0" />
+            <ColumnConstraints maxWidth="100.0" minWidth="100.0" />
+            <ColumnConstraints maxWidth="100.0" minWidth="100.0" />
+         </columnConstraints>
+         <Button fx:id="item1" alignment="CENTER" onMouseClicked="#makeMove" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button fx:id="item2" alignment="CENTER" onMouseClicked="#makeMove" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button fx:id="item3" alignment="CENTER" onMouseClicked="#makeMove" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button fx:id="item4" alignment="CENTER" onMouseClicked="#makeMove" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button fx:id="item5" alignment="CENTER" onMouseClicked="#makeMove" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button fx:id="item6" alignment="CENTER" onMouseClicked="#makeMove" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button fx:id="item7" alignment="CENTER" onMouseClicked="#makeMove" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button fx:id="item8" alignment="CENTER" onMouseClicked="#makeMove" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button fx:id="item9" alignment="CENTER" onMouseClicked="#makeMove" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+      </GridPane>
+      <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#resetGame" text="Reset Game">
+         <VBox.margin>
+            <Insets bottom="20.0" left="113.0" top="20.0" />
+         </VBox.margin></Button>
+   </children>
+</VBox>
