@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <GridPane gridLinesVisible="true" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simple.javafxapp.GridThingController">
    <rowConstraints>
-      <RowConstraints minHeight="30.0" prefHeight="30.0" />
-      <RowConstraints minHeight="30.0" prefHeight="30.0" />
-      <RowConstraints minHeight="30.0" prefHeight="30.0" />
+      <RowConstraints minHeight="100.0" prefHeight="100.0" />
+      <RowConstraints minHeight="100.0" prefHeight="100.0" />
+      <RowConstraints minHeight="100.0" prefHeight="100.0" />
    </rowConstraints>
    <columnConstraints>
-      <ColumnConstraints minWidth="30.0" prefWidth="30.0" />
-      <ColumnConstraints minWidth="30.0" prefWidth="30.0" />
-      <ColumnConstraints minWidth="30.0" prefWidth="30.0" />
+      <ColumnConstraints minWidth="100.0" prefWidth="100.0" />
+      <ColumnConstraints minWidth="100.0" prefWidth="100.0" />
+      <ColumnConstraints minWidth="100.0" prefWidth="100.0" />
    </columnConstraints>
+   <Button fx:id="item1" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+   <Button fx:id="item2" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+   <Button fx:id="item3" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+   <Button fx:id="item4" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+   <Button fx:id="item5" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   <Button fx:id="item6" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   <Button fx:id="item7" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+   <Button fx:id="item8" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+   <Button fx:id="item9" alignment="CENTER" onMouseClicked="#setButtonNumber" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 </GridPane>
