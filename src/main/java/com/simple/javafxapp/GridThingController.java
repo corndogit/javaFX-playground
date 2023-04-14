@@ -104,7 +104,7 @@ public class GridThingController {
         if ((diagonalTopLeftToBottomRight == 3) || (diagonalTopLeftToBottomRight == -3)) {
             return diagonalTopLeftToBottomRight == 3 ? "p1 win" : "p2 win";
         }
-        if (turnCount >= 9) {
+        if (turnCount >= 8) {
             return "draw";
         }
         return "pending";
