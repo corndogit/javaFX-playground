@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="main" prefWidth="500.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simple.javafxapp.MainController">
+<VBox fx:id="main" alignment="CENTER" prefWidth="500.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.simple.javafxapp.MainController">
 <children>
     <fx:include source="string-reverser-view.fxml" AnchorPane.rightAnchor="0.0" />
     <fx:include source="integer-to-roman-view.fxml" />
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#playGridThingGame" styleClass="UIbutton" text="Play Grid Thing" />
 </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 
 </VBox>
