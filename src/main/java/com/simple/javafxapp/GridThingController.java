@@ -92,7 +92,6 @@ public class GridThingController {
         int colSum = board[0][col] + board[1][col] + board[2][col];
         int diagonalTopLeftToBottomRight = board[0][0] + board[1][1] + board[2][2];
         int diagonalBottomLeftToTopRight = board[2][0] + board[1][1] + board[0][2];
-        System.out.printf("rowSum: %d%ncolSum: %d%n diag1: %d%ndiag2: %d%n", rowSum, colSum, diagonalTopLeftToBottomRight, diagonalBottomLeftToTopRight);
         if (rowSum == 3 || rowSum == -3) {
             return rowSum == 3 ? "p1 win" : "p2 win";
         }
