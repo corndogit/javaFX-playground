@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class GridThingController {
     // Grid for tracking moves and checking wins
-    protected int[][] buttons = new int[3][3];  // 1 = player 1, -1 = player 2, 0 = empty
+    protected int[][] board = new int[3][3];  // 1 = player 1, -1 = player 2, 0 = empty
 
     protected Map<String, int[]> idToIndices = Map.ofEntries(
             Map.entry("item1", new int[]{0, 0}),  // map button ids to arrays of row/column index in buttons matrix
@@ -31,6 +31,7 @@ public class GridThingController {
 
     protected boolean player1Turn = true;
     protected boolean gameIsEnded = false;
+    protected int turnCount = 0;
     protected String marking = "X";
     protected final String LABEL_TEMPLATE = "Player %d's turn (uses %s)";
 
@@ -49,9 +50,13 @@ public class GridThingController {
             return;
         }
 
+        // reflect changes on the board
+        target.setText(marking);
+        marking = player1Turn ? "O" : "X";  // if player 1 made a move, change to player 2's marking
+
         // update buttons matrix and check for win
         int[] colAndRow = idToIndices.get(target.getId());
-        buttons[colAndRow[0]][colAndRow[1]] = player1Turn ? 1 : -1;
+        board[colAndRow[0]][colAndRow[1]] = player1Turn ? 1 : -1;
         String status = checkGameStatus(colAndRow[0], colAndRow[1]);
         if ("p1 win".equals(status)) {
             turnIndicator.setText("Player 1 wins!");
@@ -69,15 +74,41 @@ public class GridThingController {
             return;
         }
 
-        // reflect changes in UI
-        target.setText(marking);
-        marking = player1Turn ? "O" : "X";  // if player 1 made a move, change to player 2's marking
+        // change player
         player1Turn = !player1Turn;
+        turnCount++;
         turnIndicator.setText(String.format(LABEL_TEMPLATE, player1Turn ? 1 : 2, marking));
     }
 
+    /**
+     * Checks the game board for a win along the rows, columns or diagonals. If the sum of a row, column or diagonal
+     * adds up to 3 (all player 1) or -3 (all player 2), then a player has won.
+     * @param row row index of the new move
+     * @param col column index of the new move
+     * @return Status of the game out of the following: "p1 win", "p2 win", "draw", or "pending"
+     */
     protected String checkGameStatus(int row, int col) {
-        return "pending";  // todo: implement win checking algorithm, adapting from Python Leetcode
+        int rowSum = board[row][0] + board[row][1] + board[row][2];
+        int colSum = board[0][col] + board[1][col] + board[2][col];
+        int diagonalTopLeftToBottomRight = board[0][0] + board[1][1] + board[2][2];
+        int diagonalBottomLeftToTopRight = board[2][0] + board[1][1] + board[0][2];
+        System.out.printf("rowSum: %d%ncolSum: %d%n diag1: %d%ndiag2: %d%n", rowSum, colSum, diagonalTopLeftToBottomRight, diagonalBottomLeftToTopRight);
+        if (rowSum == 3 || rowSum == -3) {
+            return rowSum == 3 ? "p1 win" : "p2 win";
+        }
+        if ((colSum == 3) || (colSum == -3)) {
+            return colSum == 3 ? "p1 win" : "p2 win";
+        }
+        if ((diagonalBottomLeftToTopRight == 3) || (diagonalBottomLeftToTopRight == -3)) {
+            return diagonalBottomLeftToTopRight == 3 ? "p1 win" : "p2 win";
+        }
+        if ((diagonalTopLeftToBottomRight == 3) || (diagonalTopLeftToBottomRight == -3)) {
+            return diagonalTopLeftToBottomRight == 3 ? "p1 win" : "p2 win";
+        }
+        if (turnCount >= 9) {
+            return "draw";
+        }
+        return "pending";
     }
 
     @FXML
@@ -88,7 +119,10 @@ public class GridThingController {
             }
         }
         player1Turn = true;
+        gameIsEnded = false;
         marking = "X";
+        turnCount = 0;
+        board = new int[3][3];
         turnIndicator.setText(String.format(LABEL_TEMPLATE, 1, marking));
     }
 }
